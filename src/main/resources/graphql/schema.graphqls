@@ -1,0 +1,19 @@
+type ProductGraphQlType {
+    id: ID,
+    name: String,
+    category: String,
+    price: Float,
+    stock: Int
+}
+
+#graphql does not support double , use float for decimans
+
+type Query{
+    getProduct: [ProductGraphQlType]
+    getProductsByCategory(category: String): [ProductGraphQlType]
+}
+
+type Mutation{
+    updateStock(id:ID, stock:Int): ProductGraphQlType
+    receiveNewShipment(id:ID, quantity:Int): ProductGraphQlType
+}
